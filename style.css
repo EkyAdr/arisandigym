@@ -149,6 +149,7 @@ img { max-width: 100%; display: block; }
 }
 .navbar.scrolled {
   background: rgba(10,10,10,0.95);
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   padding: 1rem 3rem;
   border-bottom: 1px solid var(--card-bd);
@@ -724,9 +725,11 @@ img { max-width: 100%; display: block; }
 }
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   align-items: stretch;
+  max-width: 800px;
+  margin: 0 auto;
 }
 .price-card {
   background: var(--card-bg);
@@ -786,6 +789,41 @@ img { max-width: 100%; display: block; }
   font-size: 1rem;
   color: var(--gray);
   letter-spacing: 0.05em;
+}
+
+.price-note {
+  font-family: var(--font-cond);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+.price-next {
+  background: var(--card-bg);
+  border: 1px dashed var(--card-bd);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.next-label {
+  font-family: var(--font-cond);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray);
+  font-weight: 600;
+}
+.next-amount {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--gold);
+  letter-spacing: 0.03em;
 }
 
 .price-features { display: flex; flex-direction: column; gap: 0.75rem; flex: 1; }
@@ -1048,6 +1086,7 @@ img { max-width: 100%; display: block; }
 @media (max-width: 1024px) {
   .hero-visual { display: none; }
   .classes-grid { grid-template-columns: repeat(2, 1fr); }
+  .pricing-grid { max-width: 700px; }
   .about .container { grid-template-columns: 1fr; gap: 3rem; }
   .about-visual { height: 300px; }
   .footer-top { grid-template-columns: 1fr; gap: 3rem; }
@@ -1060,11 +1099,37 @@ img { max-width: 100%; display: block; }
   .hamburger { display: flex; }
   .hero { padding: 100px 1.5rem 4rem; }
   .classes-grid { grid-template-columns: 1fr; }
-  .pricing-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; max-width: 400px; }
   .contact .container { grid-template-columns: 1fr; gap: 3rem; }
   .testi-card { min-width: 100%; }
   .footer-links { grid-template-columns: repeat(2, 1fr); }
   .hero-stats { gap: 1.5rem; }
+
+  /* About section mobile fix — stack cards & number vertically */
+  .about .container { grid-template-columns: 1fr; gap: 3rem; }
+  .about-visual {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .about-card.card-main,
+  .about-card.card-secondary,
+  .about-number {
+    position: static;
+    transform: none;
+    width: 100%;
+    max-width: 320px;
+  }
+  .about-card.card-main { order: 1; }
+  .about-number { order: 2; }
+  .about-card.card-secondary { order: 3; }
+  .about-number {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
 }
 
 @media (max-width: 480px) {
