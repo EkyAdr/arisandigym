@@ -1,7 +1,3 @@
-/* ===========================
-   HALIMGYM — SCRIPT.JS
-   =========================== */
-
 document.addEventListener('DOMContentLoaded', () => {
 
   // ==================== HAMBURGER MENU ====================
